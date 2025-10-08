@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chip-8 Emulator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 Chip-8 Emulator</h1>
+            <p>A fully functional JavaScript-based emulator</p>
+        </header>
+
+        <div class="emulator-section">
+            <div class="display-wrapper">
+                <canvas id="display" width="640" height="320"></canvas>
+            </div>
+
+            <div class="controls">
+                <div class="control-group">
+                    <h3>ROM Control</h3>
+                    <input type="file" id="romInput" accept=".ch8,.bin" />
+                    <div class="button-group">
+                        <button id="startBtn" disabled>▶️ Start</button>
+                        <button id="pauseBtn" disabled>⏸️ Pause</button>
+                        <button id="resetBtn" disabled>🔄 Reset</button>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <h3>Speed Control</h3>
+                    <label for="speedSlider">CPU Speed: <span id="speedValue">10</span> cycles/frame</label>
+                    <input type="range" id="speedSlider" min="1" max="30" value="10" />
+                </div>
+
+                <div class="control-group">
+                    <h3>Sample ROMs</h3>
+                    <div class="rom-buttons">
+                        <button class="sample-rom" data-rom="pong">Pong</button>
+                        <button class="sample-rom" data-rom="tetris">Tetris</button>
+                        <button class="sample-rom" data-rom="spaceinvaders">Space Invaders</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <div class="info-card">
+                <h3>📋 Keyboard Mapping</h3>
+                <div class="keyboard-layout">
+                    <div class="key-row">
+                        <span class="key">1→1</span>
+                        <span class="key">2→2</span>
+                        <span class="key">3→3</span>
+                        <span class="key">4→C</span>
+                    </div>
+                    <div class="key-row">
+                        <span class="key">Q→4</span>
+                        <span class="key">W→5</span>
+                        <span class="key">E→6</span>
+                        <span class="key">R→D</span>
+                    </div>
+                    <div class="key-row">
+                        <span class="key">A→7</span>
+                        <span class="key">S→8</span>
+                        <span class="key">D→9</span>
+                        <span class="key">F→E</span>
+                    </div>
+                    <div class="key-row">
+                        <span class="key">Z→A</span>
+                        <span class="key">X→0</span>
+                        <span class="key">C→B</span>
+                        <span class="key">V→F</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <h3>ℹ️ About</h3>
+                <p>This is a fully functional Chip-8 emulator written in JavaScript. The Chip-8 is an interpreted programming language that was used on 8-bit microcomputers in the 1970s.</p>
+                <p><strong>Features:</strong></p>
+                <ul>
+                    <li>Full Chip-8 instruction set</li>
+                    <li>60Hz display refresh rate</li>
+                    <li>Sound support</li>
+                    <li>Adjustable CPU speed</li>
+                    <li>Load custom ROMs</li>
+                </ul>
+            </div>
+        </div>
+
+        <footer>
+            <p>Made with ❤️ | Chip-8 Emulator | Load a ROM file to start playing</p>
+        </footer>
+    </div>
+
+    <script src="chip8.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
