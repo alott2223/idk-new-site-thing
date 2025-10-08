@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windows 10 Simulator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="desktop">
+        <!-- Desktop Icons -->
+        <div class="desktop-icon" data-app="explorer">
+            <svg class="icon" viewBox="0 0 48 48">
+                <path fill="#FFC107" d="M40,12H22l-4-4H8c-2.2,0-4,1.8-4,4v24c0,2.2,1.8,4,4,4h32c2.2,0,4-1.8,4-4V16C44,13.8,42.2,12,40,12z"/>
+            </svg>
+            <span>File Explorer</span>
+        </div>
+        
+        <div class="desktop-icon" data-app="notepad">
+            <svg class="icon" viewBox="0 0 48 48">
+                <path fill="#42A5F5" d="M38,44H10c-2.2,0-4-1.8-4-4V8c0-2.2,1.8-4,4-4h20l12,12v24C42,42.2,40.2,44,38,44z"/>
+                <path fill="#90CAF9" d="M38,16h-8c-2.2,0-4-1.8-4-4V4L38,16z"/>
+            </svg>
+            <span>Notepad</span>
+        </div>
+        
+        <div class="desktop-icon" data-app="calculator">
+            <svg class="icon" viewBox="0 0 48 48">
+                <rect fill="#616161" x="8" y="8" width="32" height="32" rx="2"/>
+                <rect fill="#37474F" x="10" y="10" width="28" height="8"/>
+                <circle fill="#90CAF9" cx="16" cy="26" r="2"/>
+                <circle fill="#90CAF9" cx="24" cy="26" r="2"/>
+                <circle fill="#90CAF9" cx="32" cy="26" r="2"/>
+                <circle fill="#90CAF9" cx="16" cy="34" r="2"/>
+                <circle fill="#90CAF9" cx="24" cy="34" r="2"/>
+                <circle fill="#90CAF9" cx="32" cy="34" r="2"/>
+            </svg>
+            <span>Calculator</span>
+        </div>
+        
+        <div class="desktop-icon" data-app="browser">
+            <svg class="icon" viewBox="0 0 48 48">
+                <path fill="#1976D2" d="M24,4C12.95,4,4,12.95,4,24s8.95,20,20,20s20-8.95,20-20S35.05,4,24,4z"/>
+                <path fill="#fff" d="M24,8c-8.82,0-16,7.18-16,16s7.18,16,16,16s16-7.18,16-16S32.82,8,24,8z M24,36c-6.63,0-12-5.37-12-12s5.37-12,12-12s12,5.37,12,12S30.63,36,24,36z"/>
+                <circle fill="#1976D2" cx="24" cy="24" r="8"/>
+            </svg>
+            <span>Browser</span>
+        </div>
+    </div>
+
+    <!-- Taskbar -->
+    <div id="taskbar">
+        <button id="start-button">
+            <svg viewBox="0 0 48 48" width="24" height="24">
+                <rect fill="#00BCF2" width="20" height="20" x="4" y="4"/>
+                <rect fill="#00BCF2" width="20" height="20" x="24" y="4"/>
+                <rect fill="#00BCF2" width="20" height="20" x="4" y="24"/>
+                <rect fill="#00BCF2" width="20" height="20" x="24" y="24"/>
+            </svg>
+        </button>
+        
+        <div id="taskbar-apps"></div>
+        
+        <div id="system-tray">
+            <span id="clock"></span>
+        </div>
+    </div>
+
+    <!-- Start Menu -->
+    <div id="start-menu" class="hidden">
+        <div class="start-menu-header">
+            <input type="text" placeholder="Search" id="search-box">
+        </div>
+        <div class="start-menu-content">
+            <div class="tile" data-app="explorer">
+                <svg viewBox="0 0 48 48" width="40" height="40">
+                    <path fill="#FFC107" d="M40,12H22l-4-4H8c-2.2,0-4,1.8-4,4v24c0,2.2,1.8,4,4,4h32c2.2,0,4-1.8,4-4V16C44,13.8,42.2,12,40,12z"/>
+                </svg>
+                <span>File Explorer</span>
+            </div>
+            <div class="tile" data-app="notepad">
+                <svg viewBox="0 0 48 48" width="40" height="40">
+                    <path fill="#42A5F5" d="M38,44H10c-2.2,0-4-1.8-4-4V8c0-2.2,1.8-4,4-4h20l12,12v24C42,42.2,40.2,44,38,44z"/>
+                    <path fill="#90CAF9" d="M38,16h-8c-2.2,0-4-1.8-4-4V4L38,16z"/>
+                </svg>
+                <span>Notepad</span>
+            </div>
+            <div class="tile" data-app="calculator">
+                <svg viewBox="0 0 48 48" width="40" height="40">
+                    <rect fill="#616161" x="8" y="8" width="32" height="32" rx="2"/>
+                    <rect fill="#37474F" x="10" y="10" width="28" height="8"/>
+                </svg>
+                <span>Calculator</span>
+            </div>
+            <div class="tile" data-app="browser">
+                <svg viewBox="0 0 48 48" width="40" height="40">
+                    <path fill="#1976D2" d="M24,4C12.95,4,4,12.95,4,24s8.95,20,20,20s20-8.95,20-20S35.05,4,24,4z"/>
+                    <path fill="#fff" d="M24,8c-8.82,0-16,7.18-16,16s7.18,16,16,16s16-7.18,16-16S32.82,8,24,8z"/>
+                </svg>
+                <span>Browser</span>
+            </div>
+        </div>
+        <div class="start-menu-footer">
+            <button class="power-button">⏻</button>
+        </div>
+    </div>
+
+    <!-- Window Templates -->
+    <template id="window-template">
+        <div class="window">
+            <div class="window-titlebar">
+                <span class="window-title"></span>
+                <div class="window-controls">
+                    <button class="window-minimize">─</button>
+                    <button class="window-maximize">□</button>
+                    <button class="window-close">✕</button>
+                </div>
+            </div>
+            <div class="window-content"></div>
+        </div>
+    </template>
+
+    <script src="script.js"></script>
+</body>
+</html>
